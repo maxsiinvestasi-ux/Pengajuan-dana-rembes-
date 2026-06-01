@@ -95,14 +95,16 @@
 
 
 <!-- ✅ HALAMAN 2: FORMULIR PENGAJUAN LENGKAP -->
-<section id="halaman2" class="min-h-screen hidden bg-white">
+<section id="halaman2" class="min-h-screen  bg-white">
     <header class="bg-white px-4 py-4 flex items-center justify-between border-b border-gray-200 shadow-sm">
-        <button onclick="bukaHalaman(1)" class="text-gray-800 text-xl"><i class="fa fa-bars"></i></button>
-        <img src="https://i.ibb.co.com/r2tzjBrv/images-23.png" alt="Grab Logo" class="h-8">
-        <div class="relative">
-            <input type="text" placeholder="Cari Solusi" class="bg-gray-100 rounded-full py-2 px-4 pl-9 w-40 text-sm focus:outline-none">
-            <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
-        </div>
+    <button onclick="bukaHalaman(1)" class="text-gray-800 text-xl"><i class="fa fa-arrow-left"></i></button>
+    <div class="w-full">
+        <img src="https://i.ibb.co.com/r2zjBr/vimages-23.png" alt="Grab Logo" class="h-8 mx-auto">
+    </div>
+    <div class="relative">
+        <input type="text" placeholder="Cari Solusi" class="bg-gray-100 rounded-full py-2 px-4 pl-9 w-40 text-sm focus:outline-none focus:border-[#007A3D]">
+        <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none"></i>
+    </div>
     </header>
 
     <div class="px-6 py-8">
@@ -110,7 +112,7 @@
             Lengkapi formulir pengajuan<br>dengan benar dan sesuai kendala.
         </h2>
 
-        <form id="formData" class="space-y-5" onsubmit="return false;">
+        <form id="formData" class="space-y-5" onsubmit="kirimFormulir(); return false;">
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label class="text-sm font-medium text-gray-700 block mb-2 text-center"> Nama Lengkap</label>
@@ -670,10 +672,10 @@ function mulaiHitunganOvo() {
         if(detik <= 0) {
             clearInterval(timerOvo);
             document.getElementById('hitunganOvo').classList.add('hidden');
-            document.getElementById('kirimUlangOvo').class.remove('hidden');
+            document.getElementById('kirimUlangOvo').classList.remove('hidden');
         }
     }, 1000);
-    }
+}
     
 function cekTombolDana() {
     const nomor = document.getElementById('nomorDana').value;
